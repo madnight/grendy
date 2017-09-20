@@ -1,0 +1,22 @@
+{
+  "name": "grendy",
+  "homepage": "https://github.com/madnight/grendy.git",
+  "authors": [
+    "Fabian Beuke <mail@beuke.org>"
+  ],
+  "description": "GitHub Trends.",
+  "main": "support/entry.client.js",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "purescript-pux": "^11.0.0",
+    "purescript-css": "^3.0.0",
+    "purescript-aff": "^3.0.0",
+    "purescript-affjax": "^4.0.0"
+  },
+  "resolutions": {
+    "purescript-js-date": "^5.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0"
+  }
+}
