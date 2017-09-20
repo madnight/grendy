@@ -14,7 +14,8 @@
     "purescript-affjax": "^4.0.0"
   },
   "resolutions": {
-    "purescript-js-date": "^5.0.0"
+    "purescript-js-date": "^5.0.0",
+    "purescript-arraybuffer-types": "^2.0.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^3.0.0"

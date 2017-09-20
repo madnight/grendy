@@ -12,10 +12,14 @@ import Control.Monad.Eff (Eff, kind Effect)
 import Control.Monad.Aff (Aff)
 import DOM.HTML.Types (HISTORY)
 import DOM (DOM)
+import Node.HTTP (HTTP)
 import Control.Promise (Promise, toAff)
 import Control.Bind (bind, (>>=))
 import Control.Monad.Eff.Class (liftEff)
 import Data.Foldable (foldMap)
+import News.Feed.RSS
+import Data.Traversable (traverse_)
+import Prelude
 
 foreign import data NET :: Effect
 foreign import trends :: forall e. String -> Eff e (Promise Projects)
@@ -27,6 +31,7 @@ type AppEffects fx =
   , dom :: DOM
   , console :: CONSOLE
   , net :: NET
+  , http :: HTTP
   , ajax :: AJAX | fx
   )
 
@@ -34,7 +39,9 @@ fetch :: ∀ eff. String -> Aff (net :: NET | eff) Projects
 fetch language = liftEff (trends language) >>= toAff
 
 languages :: Array String
-languages = ["javascript", "c#", "haskell", "c++"]
+languages =
+  ["haskell"]
+  {-- ["javascript", "c#", "haskell", "purescript", "php", "typescript", "c", "c", "c"] --}
 
 fetchAll :: ∀ eff. Aff (net :: NET | eff) Projects
 fetchAll = foldMap fetch languages
@@ -53,10 +60,16 @@ consolePrint state =
   , effects: [ log "increment" *> pure Nothing ]
   }
 
+feeds = ["http://github-trends.ryotarai.info/rss/github_trends_all_daily.rss"]
+
 fetchPrint :: ∀ fx. State -> EffModel State Event (AppEffects fx)
 fetchPrint state =
   { state: state
   , effects: [ do
              result <- fetchAll
+             b <- foldMap rss feeds
+             traverse_ (\e -> log e.title) b
+             traverse_ (\e -> log e.url) b
+             {-- traverse_ log a --}
              pure $ Just $ SetTodos result ]
   }
