@@ -1,5 +1,6 @@
 module App.Events where
 
+import App.BigQuery (query, NET(..))
 import App.Routes (Route)
 import App.State (State(..), Projects)
 import Data.Function (($))
@@ -21,7 +22,6 @@ import News.Feed.RSS
 import Data.Traversable (traverse_)
 import Prelude
 
-foreign import data NET :: Effect
 foreign import trends :: forall e. String -> Eff e (Promise Projects)
 
 data Event = PageView Route | ReceiveTodos | SetTodos Projects
@@ -42,6 +42,9 @@ languages :: Array String
 languages =
   ["haskell"]
   {-- ["javascript", "c#", "haskell", "purescript", "php", "typescript", "c", "c", "c"] --}
+
+queryStars :: String
+queryStars = "haskell"
 
 fetchAll :: ∀ eff. Aff (net :: NET | eff) Projects
 fetchAll = foldMap fetch languages
@@ -66,10 +69,11 @@ fetchPrint :: ∀ fx. State -> EffModel State Event (AppEffects fx)
 fetchPrint state =
   { state: state
   , effects: [ do
-             result <- fetchAll
-             b <- foldMap rss feeds
-             traverse_ (\e -> log e.title) b
-             traverse_ (\e -> log e.url) b
+             test <- query queryStars
+             {-- traverse_ (\e -> log e.repo) test --}
+             {-- b <- foldMap rss feeds --}
+             {-- traverse_ (\e -> log e.title) b --}
+             {-- traverse_ (\e -> log e.url) b --}
              {-- traverse_ log a --}
-             pure $ Just $ SetTodos result ]
+             pure $ Just $ SetTodos test ]
   }

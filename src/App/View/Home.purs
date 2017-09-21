@@ -21,5 +21,5 @@ view (State st) =
 
 showProject :: Project -> HTML Event
 showProject (Project project) =
-  li ! key (show project.owner)
-  ! className "todo" $ text (project.owner <> "/" <> project.name)
+  li ! key (show project.repo)
+  ! className "todo" $ text (project.repo <> " Stars " <> project.stars)
