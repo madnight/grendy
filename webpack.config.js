@@ -55,7 +55,6 @@ module.exports = {
   },
   resolve: {
     alias: {
-      jquery: "jquery/src/jquery",
       'react': 'preact-compat',
       'react-dom': 'preact-compat',
       'create-react-class': 'preact-compat/lib/create-react-class'
