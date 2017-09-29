@@ -5,8 +5,15 @@ import App.Routes (Route, match)
 type Projects = Array Project
 
 newtype Project = Project
-  { repo :: String
-  , stars :: String
+  { name :: String
+  , todayStars :: String
+  , avatarUrl :: String
+  , date :: String
+  , language :: String
+  , totalStars :: String
+  , todayStars :: String
+  , license :: String
+  , desc :: String
   }
 
 

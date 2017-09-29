@@ -32,12 +32,12 @@ svgStar =
 showProject :: Project -> HTML Event
 showProject (Project project) =
   p $ do
-    a ! href ("https://www.github.com/" <> project.repo) $ text project.repo
+    a ! href ("https://www.github.com/" <> project.name) $ text project.name
     svgStar
-    text $ " +" <> project.stars
+    text $ " +" <> project.todayStars <> "/" <> project.totalStars
     br
-    img ! src "https://avatars.githubusercontent.com/HVF?v=3&amp;s=160"
-
-{-- <img src="https://avatars.githubusercontent.com/HVF?v=3&amp;s=160" class="thumb animated fadeIn" data-reactid=".0.1.1:$0.1:$HVF/franchise.1.0"> --}
-
-
+    text $ project.desc
+    br
+    text $ project.license <> " " <> project.language
+    br
+    img ! src project.avatarUrl
