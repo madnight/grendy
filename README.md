@@ -1,2 +1,0 @@
-# grendy
-GitHub Trendy
