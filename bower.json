@@ -4,14 +4,16 @@
   "authors": [
     "Fabian Beuke <mail@beuke.org>"
   ],
-  "description": "GitHub Trends.",
+  "description": "GitHub Trends",
   "main": "support/entry.client.js",
   "license": "AGPL-3.0",
   "dependencies": {
     "purescript-pux": "^11.0.0",
     "purescript-css": "^3.0.0",
     "purescript-aff": "^3.0.0",
-    "purescript-affjax": "^4.0.0"
+    "purescript-affjax": "^4.0.0",
+    "purescript-aff-promise": "^0.7.0",
+    "purescript-node-http": "^4.1.0"
   },
   "resolutions": {
     "purescript-js-date": "^5.0.0",
