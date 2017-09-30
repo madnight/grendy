@@ -18,7 +18,6 @@ import Control.Promise (Promise, toAff)
 import Control.Bind (bind, (>>=))
 import Control.Monad.Eff.Class (liftEff)
 import Data.Foldable (foldMap)
-import News.Feed.RSS
 import Data.Traversable (traverse_)
 import Prelude
 

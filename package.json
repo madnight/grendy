@@ -16,7 +16,9 @@
     "watch": "npm run clean && webpack-dev-server --content-base static/ --hot --inline --config webpack.config.js",
     "serve": "npm run build && serve -s static",
     "start": "npm run watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean-source": "rimraf README.md src support webpack.config.js bower.json bower_components LICENSE package.json static .gitignore .psci_modules node_modules output",
+    "deploy": "npm run build && gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -34,7 +36,11 @@
     "axios": "^0.16.2",
     "bower": "^1.7.9",
     "feedparser": "^2.2.1",
+    "gh-pages-deploy": "^0.4.2",
     "github-trend": "^0.1.0",
+    "gulp": "^3.9.1",
+    "gulp-gh-pages": "^0.5.4",
+    "inquirer-confirm": "^0.2.2",
     "json-loader": "^0.5.7",
     "moment": "^2.18.1",
     "preact": "^8.2.1",
