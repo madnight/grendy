@@ -1,11 +1,10 @@
 var axios = require("axios");
 
-exports.bigquery = function(query) {
+exports.fetch = function(url) {
   return function() {
-    return axios("https://grendy.herokuapp.com")
+    return axios(url)
       .then(function(response){
         return response.data;
     })
   }
 };
-

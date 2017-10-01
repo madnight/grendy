@@ -1,10 +1,8 @@
 module App.View.Layout where
 
 import App.Events (Event)
-import App.Routes (Route(NotFound, Home))
 import App.State (State(..))
 import App.View.Home as Homepage
-import App.View.NotFound as NotFound
 import CSS (CSS, fromString, (?), fontSize, display, inlineBlock, marginTop, px, value, key, padding, borderRadius)
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
@@ -21,10 +19,7 @@ view :: State -> HTML Event
 view (State st) =
   div ! className "app" $ do
     style css
-
-    case st.route of
-      (Home) -> Homepage.view (State st)
-      (NotFound url) -> NotFound.view (State st)
+    Homepage.view (State st)
 
 css :: CSS
 css = do

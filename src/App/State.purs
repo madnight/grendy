@@ -1,7 +1,5 @@
 module App.State where
 
-import App.Routes (Route, match)
-
 type Projects = Array Project
 
 newtype Project = Project
@@ -16,18 +14,15 @@ newtype Project = Project
   , desc :: String
   }
 
-
 newtype State = State
   { title :: String
-  , route :: Route
   , loaded :: Boolean
   , projects :: Projects
   }
 
 init :: String -> State
 init url = State
-  { title: "Github Starter"
-  , route: match url
+  { title: "Grendy"
   , projects: []
   , loaded: false
   }
