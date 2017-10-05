@@ -27,13 +27,10 @@ initialState = init "/"
 
 main :: String -> State -> Eff ClientEffects WebApp
 main url state = do
-  -- | Start the app.
   app <- start
     { initialState: state
     , view
     , foldp
     , inputs: [constant ReceiveRepos] }
-  -- | Render to the DOM
   renderToDOM "#app" app.markup app.input
-  -- | Return app to be used for hot reloading logic in support/client.entry.js
   pure app

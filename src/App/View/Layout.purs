@@ -3,11 +3,13 @@ module App.View.Layout where
 import App.Events (Event)
 import App.State (State(..))
 import App.View.Home as Homepage
-import CSS (CSS, fromString, (?), fontSize, display, inlineBlock, marginTop, px, value, key, padding, borderRadius)
+import CSS (CSS, fromString, (?), fontSize, color, display, inlineBlock, marginTop, marginRight, px, value, key, padding, borderRadius)
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
+import CSS.Display
 import Color (rgb)
+import CSS.Color
 import Control.Bind (discard)
 import Data.Function (($), (#))
 import Pux.DOM.HTML (HTML, style)
@@ -23,19 +25,35 @@ view (State st) =
 
 css :: CSS
 css = do
-  let green = rgb 14 196 172
-      blue = rgb 14 154 196
-      white = rgb 250 250 250
-
   fromString "body" ? do
     key (fromString "font-family") (value "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif")
-    textAlign center
+
+  fromString ".project" ? do
+    marginTop (50.0 #px)
+
+  fromString ".avatar" ? do
+    float floatLeft
+    marginRight (20.0 #px)
+
+  fromString ".star" ? do
+    float floatLeft
+    marginRight (5.0 #px)
+
+  fromString ".todayStars" ? do
+    float floatRight
+    fontSize (48.0 #px)
+    color mediumseagreen
+
+  fromString ".license" ? do
+    float floatLeft
+    marginRight (20.0 #px)
 
   fromString "h1" ? do
     fontSize (48.0 #px)
     marginTop (48.0 #px)
     textTransform uppercase
     letterSpacing (6.0 #px)
+    textAlign center
 
   fromString "a" ? do
     display inlineBlock
