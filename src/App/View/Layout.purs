@@ -3,7 +3,7 @@ module App.View.Layout where
 import App.Events (Event)
 import App.State (State(..))
 import App.View.Home as Homepage
-import CSS (CSS, fromString, (?), fontSize, color, display, inlineBlock, marginTop, marginRight, px, value, key, padding, borderRadius)
+import CSS (CSS, fromString, (?), fontSize, color, display, inlineBlock, marginBottom, marginTop, marginRight, px, value, key, padding, borderRadius, minHeight, paddingTop, paddingBottom, borderBottom, solid)
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
@@ -29,11 +29,21 @@ css = do
     key (fromString "font-family") (value "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif")
 
   fromString ".project" ? do
-    marginTop (50.0 #px)
+    paddingTop (25.0 #px)
+    paddingBottom (50.0 #px)
+    minHeight (70.0 #px)
+    borderBottom solid (1.0 #px) lightgrey
 
   fromString ".avatar" ? do
     float floatLeft
     marginRight (20.0 #px)
+
+  fromString ".name" ? do
+    fontSize (28.0 #px)
+
+  fromString ".desc" ? do
+    fontSize (15.0 #px)
+    minHeight (15.0 #px)
 
   fromString ".star" ? do
     float floatLeft
@@ -41,16 +51,28 @@ css = do
 
   fromString ".todayStars" ? do
     float floatRight
-    fontSize (48.0 #px)
+    fontSize (40.0 #px)
+    minHeight (40.0 #px)
     color mediumseagreen
+
+  fromString ".totalStars" ? do
+    float floatLeft
+    fontSize (15.0 #px)
+    marginRight (20.0 #px)
+    {-- marginTop (5.0 #px) --}
 
   fromString ".license" ? do
     float floatLeft
+    fontSize (15.0 #px)
+    marginRight (20.0 #px)
+
+  fromString ".language" ? do
+    float floatLeft
+    fontSize (15.0 #px)
     marginRight (20.0 #px)
 
   fromString "h1" ? do
     fontSize (48.0 #px)
-    marginTop (48.0 #px)
     textTransform uppercase
     letterSpacing (6.0 #px)
     textAlign center

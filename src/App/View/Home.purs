@@ -36,7 +36,6 @@ svgStar =
 showProject :: Project -> HTML Event
 showProject (Project project) =
   div ! className "project" $ do
-  p $ do
     div ! className "todayStars" $ text $ "+" <> project.todayStars
     div ! className "avatar" $ img ! width "100" ! src project.avatarUrl
     div ! className "name" $ a ! href ("https://www.github.com/" <> project.name) $ text project.name
