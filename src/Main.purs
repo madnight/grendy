@@ -1,7 +1,7 @@
 module Main where
 
 import App.Events (AppEffects, Event(..), foldp)
-import App.State (State, init)
+import App.State (State(..), init)
 import App.View.Layout (view)
 import Control.Monad.Aff.Console (CONSOLE)
 import Control.Monad.Eff (Eff)
@@ -13,6 +13,8 @@ import Pux (CoreEffects, App, start)
 import Pux.DOM.Events (DOMEvent)
 import Pux.Renderer.React (renderToDOM)
 import Signal (constant)
+
+foreign import reset :: String -> String
 
 type WebApp = App (DOMEvent -> Event) Event State
 
@@ -27,6 +29,7 @@ initialState = init "/"
 
 main :: String -> State -> Eff ClientEffects WebApp
 main url state = do
+  let _ = reset ""
   app <- start
     { initialState: state
     , view

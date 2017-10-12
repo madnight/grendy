@@ -3,7 +3,7 @@ module App.View.Layout where
 import App.Events (Event)
 import App.State (State(..))
 import App.View.Home as Homepage
-import CSS (CSS, fromString, (?), fontSize, color, display, inlineBlock, marginBottom, marginTop, marginRight, px, value, key, padding, borderRadius, minHeight, paddingTop, paddingBottom, borderBottom, solid)
+import CSS (CSS, fromString, (?), fontSize, fontWeight, weight, FontWeight(..), color, display, inlineBlock, marginBottom, marginTop, marginRight, px, value, key, padding, borderRadius, minHeight, paddingTop, paddingBottom, borderBottom, solid)
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
@@ -75,6 +75,11 @@ css = do
     fontSize (48.0 #px)
     textTransform uppercase
     letterSpacing (6.0 #px)
+    textAlign center
+
+  fromString "h2" ? do
+    fontSize (20.0 #px)
+    marginTop (30.0 #px)
     textAlign center
 
   fromString "a" ? do

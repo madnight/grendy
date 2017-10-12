@@ -14,7 +14,7 @@ newtype Project = Project
   , desc :: String
   }
 
-newtype State = State
+data State = State
   { title :: String
   , loaded :: Boolean
   , projects :: Projects
