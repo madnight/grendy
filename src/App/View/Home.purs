@@ -12,7 +12,8 @@ import Pux.DOM.HTML (HTML)
 import Pux.DOM.Events (onClick, onScroll, onWheel, onKeyPress)
 import Pux.DOM.HTML.Attributes (key, focused)
 {-- import Text.Smolder.HTML (a, div, h1, ol, li, p, img, br) --}
-import Text.Smolder.HTML (a, div, h1, h2, ol, li, p, img, br, table, thead, tr, th, tbody, td)
+import Text.Smolder.HTML (a, div, h1, h2, ol, li, p, img, br, table,
+                          thead, tr, th, tbody, td, button)
 import Text.Smolder.SVG
 import Text.Smolder.SVG.Attributes
 import Text.Smolder.HTML.Attributes (href, className, src, tabindex)
@@ -27,16 +28,13 @@ import Control.Monad.Eff.Console (log)
 
 view :: State -> HTML Event
 view (State st) =
-  div #! (on "onwheel") (const (Refetch))
-      #! (on "ontouchmove") (const (Refetch))
-      {-- #! (on "onkeydown") (const (Refetch)) --}
-      $ do
+  div $ do
     h1 $ text "Github Trends"
     ol $ for_ st.projects showProject
     if (length st.projects) == 0 then
       h2 $ text "loading github projects..."
       else
-      h2 $ text "scroll to see more"
+      div ! className "button" $ button #! on "onClick" (const Refetch) $ text "show more..."
 
 svgStar :: HTML Event
 svgStar =
@@ -53,7 +51,8 @@ showProject (Project project) =
     div ! className "avatar" $ img ! width "100" ! src project.avatarUrl
     div ! className "name" $ a ! href ("https://www.github.com/" <> project.name) $ text project.name
     div ! className "desc" $ text $ project.desc
-    div ! className "star" $ svgStar
-    div ! className "totalStars" $ text $ project.totalStars
-    div ! className "license" $ text $ project.license
-    div ! className "language" $ text $ project.language
+    div ! className "misc" $  do
+      div ! className "star" $ svgStar
+      div ! className "totalStars" $ text $ project.totalStars
+      div ! className "license" $ text $ project.license
+      div ! className "language" $ text $ project.language

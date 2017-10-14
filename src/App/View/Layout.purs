@@ -8,6 +8,8 @@ import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
 import CSS.Display
+import CSS.Geometry
+import CSS.Common
 import Color (rgb)
 import CSS.Color
 import Control.Bind (discard)
@@ -37,12 +39,12 @@ css = do
   fromString ".avatar" ? do
     float floatLeft
     marginRight (20.0 #px)
+    marginTop (20.0 #px)
 
   fromString ".name" ? do
     fontSize (28.0 #px)
 
   fromString ".desc" ? do
-    fontSize (15.0 #px)
     minHeight (15.0 #px)
 
   fromString ".star" ? do
@@ -51,24 +53,26 @@ css = do
 
   fromString ".todayStars" ? do
     float floatRight
-    fontSize (40.0 #px)
+    fontSize (28.0 #px)
     minHeight (40.0 #px)
     color mediumseagreen
 
   fromString ".totalStars" ? do
     float floatLeft
-    fontSize (15.0 #px)
+    minHeight (15.0 #px)
     marginRight (20.0 #px)
     {-- marginTop (5.0 #px) --}
 
   fromString ".license" ? do
     float floatLeft
-    fontSize (15.0 #px)
     marginRight (20.0 #px)
+
+  fromString ".misc" ? do
+    marginTop (10.0 #px)
+    marginLeft (120.0 #px)
 
   fromString ".language" ? do
     float floatLeft
-    fontSize (15.0 #px)
     marginRight (20.0 #px)
 
   fromString "h1" ? do
@@ -81,6 +85,12 @@ css = do
     fontSize (20.0 #px)
     marginTop (30.0 #px)
     textAlign center
+
+  fromString "button" ? do
+    fontSize (25.0 #px)
+    margin (30.0 #px) auto auto auto
+    textAlign center
+    display flex
 
   fromString "a" ? do
     display inlineBlock
