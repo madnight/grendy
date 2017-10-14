@@ -10,17 +10,14 @@ import Control.Applicative ((<$>))
 import Data.Show (show)
 import Pux.DOM.HTML (HTML)
 import Pux.DOM.Events (onClick, onScroll, onWheel, onKeyPress)
-import Pux.DOM.HTML.Attributes (key, focused)
-{-- import Text.Smolder.HTML (a, div, h1, ol, li, p, img, br) --}
 import Text.Smolder.HTML (a, div, h1, h2, ol, li, p, img, br, table,
                           thead, tr, th, tbody, td, button)
 import Text.Smolder.SVG
 import Text.Smolder.SVG.Attributes
 import Text.Smolder.HTML.Attributes (href, className, src, tabindex)
-import Text.Smolder.Markup (Markup, text, (#!), (!))
+import Text.Smolder.Markup (Markup, text, (#!), (!), on)
 import Data.Foldable (foldMap, sum, traverse_)
 import Data.Array (cons, (..), length, zipWith)
-import Text.Smolder.Markup (EventHandler(..), EventHandlers, on)
 import Signal.Time
 import Prelude
 
