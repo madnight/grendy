@@ -3,17 +3,19 @@ module App.View.Layout where
 import App.Events (Event)
 import App.State (State(..))
 import App.View.Home as Homepage
-import CSS (CSS, fromString, (?), fontSize, fontWeight, weight, FontWeight(..), color, display, inlineBlock, marginBottom, marginTop, marginRight, px, value, key, padding, borderRadius, minHeight, paddingTop, paddingBottom, borderBottom, solid)
+import CSS (CSS, borderBottom, borderRadius, color, fontSize, fromString,
+            key, px, solid, value, (?))
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
-import CSS.Display
-import CSS.Geometry
-import CSS.Common
-import Color (rgb)
+import CSS.Display (display, flex, float, floatLeft, floatRight, inlineBlock)
+import CSS.Geometry (margin, marginLeft, marginRight, marginTop, minHeight, minWidth, padding, paddingBottom, paddingTop)
+import CSS.Common (auto)
 import CSS.Color
+import CSS.Font
 import Control.Bind (discard)
 import Data.Function (($), (#))
+import Data.Maybe (fromMaybe)
 import Pux.DOM.HTML (HTML, style)
 import Text.Smolder.HTML (div)
 import Text.Smolder.HTML.Attributes (className)
@@ -43,36 +45,40 @@ css = do
 
   fromString ".name" ? do
     fontSize (28.0 #px)
+    color mediumseagreen
+
+  fromString "a" ? do
+    fontSize (28.0 #px)
+    hexColor "#3C7382"
 
   fromString ".desc" ? do
     minHeight (15.0 #px)
+    fontSize (16.0 #px)
 
   fromString ".star" ? do
-    float floatLeft
     marginRight (5.0 #px)
 
   fromString ".todayStars" ? do
     float floatRight
     fontSize (28.0 #px)
     minHeight (40.0 #px)
+    fontWeight bold
     color mediumseagreen
 
   fromString ".totalStars" ? do
-    float floatLeft
     minHeight (15.0 #px)
     marginRight (20.0 #px)
-    {-- marginTop (5.0 #px) --}
 
   fromString ".license" ? do
-    float floatLeft
     marginRight (20.0 #px)
+    minWidth (75.0 #px)
 
   fromString ".misc" ? do
     marginTop (10.0 #px)
     marginLeft (120.0 #px)
+    fontSize (14.0 #px)
 
   fromString ".language" ? do
-    float floatLeft
     marginRight (20.0 #px)
 
   fromString "h1" ? do
@@ -91,9 +97,5 @@ css = do
     margin (30.0 #px) auto auto auto
     textAlign center
     display flex
-
-  fromString "a" ? do
-    display inlineBlock
-    borderRadius (2.0 #px) (2.0 #px) (2.0 #px) (2.0 #px)
-    padding (6.0 #px) (6.0 #px) (6.0 #px) (6.0 #px)
-    textDecoration noneTextDecoration
+    where
+      hexColor hexstr = color $ fromMaybe white (fromHexString hexstr)
