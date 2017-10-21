@@ -9,7 +9,7 @@ import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
 import CSS.Display (display, flex, float, floatLeft, floatRight, inlineBlock)
-import CSS.Geometry (margin, marginLeft, marginRight, marginTop, minHeight, minWidth, padding, paddingBottom, paddingTop)
+import CSS.Geometry
 import CSS.Common (auto)
 import CSS.Color
 import CSS.Font
@@ -33,25 +33,23 @@ css = do
     key (fromString "font-family") (value "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif")
 
   fromString ".project" ? do
-    paddingTop (25.0 #px)
-    paddingBottom (50.0 #px)
-    minHeight (70.0 #px)
+    minHeight (120.0 #px)
     borderBottom solid (1.0 #px) lightgrey
 
   fromString ".avatar" ? do
     float floatLeft
     marginRight (20.0 #px)
-    marginTop (20.0 #px)
-
-  fromString ".name" ? do
-    fontSize (28.0 #px)
-    color mediumseagreen
 
   fromString "a" ? do
+    paddingTop (10.0 #px)
     fontSize (28.0 #px)
-    hexColor "#3C7382"
+    hexColor "#4285F4"
+
+  fromString ".name" ? do
+    marginTop (20.0 #px)
 
   fromString ".desc" ? do
+    marginTop (10.0 #px)
     minHeight (15.0 #px)
     fontSize (16.0 #px)
 
@@ -60,6 +58,7 @@ css = do
 
   fromString ".todayStars" ? do
     float floatRight
+    marginTop (10.0 #px)
     fontSize (28.0 #px)
     minHeight (40.0 #px)
     fontWeight bold
@@ -67,6 +66,7 @@ css = do
 
   fromString ".totalStars" ? do
     minHeight (15.0 #px)
+    fontSize (14.0 #px)
     marginRight (20.0 #px)
 
   fromString ".license" ? do
@@ -77,6 +77,7 @@ css = do
     marginTop (10.0 #px)
     marginLeft (120.0 #px)
     fontSize (14.0 #px)
+    marginBottom (20.0 #px)
 
   fromString ".language" ? do
     marginRight (20.0 #px)
@@ -94,7 +95,11 @@ css = do
 
   fromString "button" ? do
     fontSize (25.0 #px)
-    margin (30.0 #px) auto auto auto
+    margin (50.0 #px) auto (50.0 #px) auto
+    paddingBottom (10.0 #px)
+    paddingLeft (10.0 #px)
+    paddingRight (10.0 #px)
+    paddingTop (10.0 #px)
     textAlign center
     display flex
     where
