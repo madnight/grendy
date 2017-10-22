@@ -93,14 +93,9 @@ css = do
     marginTop (30.0 #px)
     textAlign center
 
-  fromString "button" ? do
+  fromString ".more" ? do
     fontSize (25.0 #px)
     margin (50.0 #px) auto (50.0 #px) auto
-    paddingBottom (10.0 #px)
-    paddingLeft (10.0 #px)
-    paddingRight (10.0 #px)
-    paddingTop (10.0 #px)
     textAlign center
-    display flex
     where
       hexColor hexstr = color $ fromMaybe white (fromHexString hexstr)

@@ -20,7 +20,7 @@ view (State st) =
     if (length st.projects) == 0 then
       h2 $ text "loading github projects..."
       else
-      div ! className "button" $ button #! on "onClick" (const Refetch) $ text "show more..."
+      div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const Refetch) $ text "show more..."
 
 svgStar :: HTML Event
 svgStar =
