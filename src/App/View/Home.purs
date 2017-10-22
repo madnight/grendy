@@ -2,8 +2,10 @@ module App.View.Home where
 
 import App.Events (Event(..))
 import App.State (State(..), Project(..))
-import Data.Array (length)
+import Data.Array (length) as A
+import Data.String (take, length, null)
 import Data.Foldable (for_)
+import Data.Maybe
 import Prelude hiding (div)
 import Pux.DOM.HTML (HTML)
 import Text.Smolder.HTML (a, button, div, span, h1, h2, img, ol)
@@ -12,12 +14,14 @@ import Text.Smolder.Markup (on, text, (!), (#!))
 import Text.Smolder.SVG (path, svg)
 import Text.Smolder.SVG.Attributes (d, fillRule, height, viewBox, width)
 
+foreign import shorten :: String -> String
+
 view :: State -> HTML Event
 view (State st) =
   div $ do
     h1 $ text "Github Trends"
     div $ for_ st.projects showProject
-    if (length st.projects) == 0 then
+    if (A.length st.projects) == 0 then
       h2 $ text "loading github projects..."
       else
       div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const Refetch) $ text "show more..."
@@ -36,9 +40,9 @@ showProject (Project project) =
     div ! className "todayStars" $ text $ "+" <> project.todayStars
     div ! className "avatar" $ img ! width "100" ! src project.avatarUrl
     div ! className "name" $ a ! href ("https://www.github.com/" <> project.name) $ text project.name
-    div ! className "desc" $ text $ project.desc
+    div ! className "desc" $ text (shorten project.desc)
     div ! className "misc" $  do
       span ! className "star" $ svgStar
-      span ! className "totalStars" $ text $ project.totalStars
-      span ! className "license" $ text $ project.license
-      span ! className "language" $ text $ project.language
+      span ! className "totalStars" $ text project.totalStars
+      span ! className "license" $ text project.license
+      span ! className "language" $ text project.language

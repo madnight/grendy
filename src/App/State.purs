@@ -1,5 +1,7 @@
 module App.State where
 
+import Data.Maybe
+
 type Projects = Array Project
 
 newtype Project = Project
