@@ -34,6 +34,8 @@ css = do
 
   fromString ".project" ? do
     minHeight (120.0 #px)
+    marginRight (10.0 #px)
+    marginLeft (10.0 #px)
     borderBottom solid (1.0 #px) lightgrey
 
   fromString ".avatar" ? do
@@ -42,14 +44,13 @@ css = do
 
   fromString "a" ? do
     paddingTop (10.0 #px)
-    fontSize (28.0 #px)
+    fontSize (24.0 #px)
     hexColor "#4285F4"
 
   fromString ".name" ? do
     marginTop (20.0 #px)
 
   fromString ".desc" ? do
-    marginTop (10.0 #px)
     minHeight (15.0 #px)
     fontSize (16.0 #px)
 
@@ -83,7 +84,7 @@ css = do
     marginRight (20.0 #px)
 
   fromString "h1" ? do
-    fontSize (48.0 #px)
+    fontSize (40.0 #px)
     textTransform uppercase
     letterSpacing (6.0 #px)
     textAlign center

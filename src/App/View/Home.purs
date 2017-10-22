@@ -21,10 +21,12 @@ view (State st) =
   div $ do
     h1 $ text "Github Trends"
     div $ for_ st.projects showProject
-    if (A.length st.projects) == 0 then
+    if (A.length st.projects) == 0 then do
       h2 $ text "loading github projects..."
+      div ! className "progress" $ div ! className "indeterminate" $ text ""
       else
       div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const Refetch) $ text "show more..."
+
 
 svgStar :: HTML Event
 svgStar =
