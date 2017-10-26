@@ -31,6 +31,6 @@ main url state = do
     { initialState: state
     , view
     , foldp
-    , inputs: [constant ReceiveRepos] }
+    , inputs: [constant FetchRepos] }
   renderToDOM "#app" app.markup app.input
   pure app

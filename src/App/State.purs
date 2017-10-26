@@ -20,6 +20,7 @@ data State = State
   { title :: String
   , loaded :: Boolean
   , projects :: Projects
+  , pagination :: Int
   }
 
 init :: String -> State
@@ -27,4 +28,5 @@ init url = State
   { title: "Grendy"
   , projects: []
   , loaded: false
+  , pagination: 0
   }

@@ -8,13 +8,10 @@ import DOM.HTML.Types (HISTORY)
 import Data.Maybe (Maybe(..))
 import Network.HTTP.Affjax (AJAX)
 import Node.HTTP (HTTP)
-import Prelude (bind, pure, ($), (<>))
+import Prelude (bind, pure, ($), (<>), (+), show, (==))
 import Pux (EffModel, noEffects)
 
-foreign import getN :: String -> String
-foreign import setN :: String -> Int
-
-data Event = ReceiveRepos | Refetch | SetRepos Projects
+data Event = IncrementPagination | FetchRepos | SetRepos Projects
 
 type AppEffects fx =
   ( history :: HISTORY
@@ -26,27 +23,25 @@ type AppEffects fx =
   )
 
 foldp :: ∀ fx. Event -> State -> EffModel State Event (AppEffects fx)
+
 foldp (SetRepos p) (State st) =
   noEffects $ State st { projects = st.projects <> p }
-foldp ReceiveRepos state =
-  fetchPrint $ state
-foldp Refetch state = consolePrint state
 
-consolePrint :: ∀ fx. State -> EffModel State Event (AppEffects fx)
-consolePrint (State st) =
+foldp IncrementPagination (State st) =
+  noEffects $ State st { pagination = st.pagination + 1 }
+
+foldp FetchRepos state = fetchRepos state
+
+fetchRepos :: ∀ fx. State -> EffModel State Event (AppEffects fx)
+fetchRepos (State st) =
   { state: State st
   , effects: [ do
-                let x = getN ""
-                test <- query ("https://grendy.herokuapp.com/" <> x)
-                let _ = setN ""
-                pure $ Just $ SetRepos test
+                let page = if st.pagination == 0
+                           then ""
+                           else (show st.pagination)
+                repos <- query ("https://grendy.herokuapp.com/" <> page )
+                pure $ Just $ SetRepos repos
+                ,
+                pure $ Just $ IncrementPagination
              ]
-  }
-
-fetchPrint :: ∀ fx. State -> EffModel State Event (AppEffects fx)
-fetchPrint state =
-  { state: state
-  , effects: [ do
-             test <- query "https://grendy.herokuapp.com"
-             pure $ Just $ SetRepos test ]
   }

@@ -25,7 +25,7 @@ view (State st) =
       h2 $ text "loading github projects..."
       div ! className "progress" $ div ! className "indeterminate" $ text ""
       else
-      div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const Refetch) $ text "show more..."
+      div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const FetchRepos) $ text "show more..."
 
 
 svgStar :: HTML Event
