@@ -14,8 +14,6 @@ import Pux.DOM.Events (DOMEvent)
 import Pux.Renderer.React (renderToDOM)
 import Signal (constant)
 
-foreign import reset :: String -> String
-
 type WebApp = App (DOMEvent -> Event) Event State
 
 type ClientEffects =
@@ -29,7 +27,6 @@ initialState = init "/"
 
 main :: String -> State -> Eff ClientEffects WebApp
 main url state = do
-  let _ = reset ""
   app <- start
     { initialState: state
     , view
