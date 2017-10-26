@@ -40,6 +40,7 @@ Pros:
 * Render to React (or any virtual DOM library)
 * Time-travelling debugging
 * Good JavaScript interop (one can use all npm libs)
+* The #haskell and #purescript community on freenode and in general is very helpful and kind
 
 Cons:
 * Performance
