@@ -53,8 +53,6 @@ The backend API fetches the required information from Google BigQuery plus Githu
 
 # Related Work 
 
-There are two alternatives that i am aware of first the offical GitHub Trends
-
 https://github.com/trending
 * Pros: select trending repos per programming language e.g. top trending haskell
 * Cons: limitation of top 25 repos
