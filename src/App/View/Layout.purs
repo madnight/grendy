@@ -4,7 +4,7 @@ import App.Events (Event)
 import App.State (State(..))
 import App.View.Home as Homepage
 import CSS (CSS, borderBottom, borderRadius, color, fontSize, fromString,
-            key, px, solid, value, (?))
+            key, px, em, solid, value, (?))
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
@@ -52,6 +52,9 @@ css = do
     paddingTop (10.0 #px)
     fontSize (24.0 #px)
     hexColor "#4285F4"
+
+  fromString "img" ? do
+    borderRadius (0.3 #em) (0.3 #em) (0.3 #em) (0.3 #em)
 
   fromString ".material-icons" ? do
     marginRight (3.0 #px)
