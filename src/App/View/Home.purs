@@ -37,6 +37,7 @@ view (State st) =
 
 showProject :: Project -> HTML Event
 showProject (Project project) =
+  when (not isEmpty project.desc) do
   div ! className "project" $ do
     div ! className "todayStars" $ text $ "+" <> project.todayStars
     div ! className "avatar" $ img ! width "100" ! src project.avatarUrl
