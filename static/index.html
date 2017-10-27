@@ -17,7 +17,8 @@
     <script>
     $(window).on('scroll', _.throttle( function(){
       if( $(window).scrollTop() + 3000 > $(document).height() - $(window).height() ) {
-          $("#app > div > div > div.more > a")[0].click();
+          var button = $("#app > div > div > div.more > a")[0]
+          if (button) button.click();
       }
     }, 5000)).scroll();
 </script>

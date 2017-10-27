@@ -15,6 +15,10 @@ import Text.Smolder.SVG (path, svg)
 import Text.Smolder.SVG.Attributes (d, fillRule, height, viewBox, width)
 
 foreign import shorten :: String -> String
+foreign import toLocaleString :: String -> String
+foreign import isEmpty :: String -> Boolean
+
+void = text ""
 
 view :: State -> HTML Event
 view (State st) =
@@ -25,20 +29,11 @@ view (State st) =
     if (A.length st.projects) == 0 then do
       h2 $ text "loading github projects..."
       div ! className "progressBox" $
-      div ! className "progress" $ div ! className "indeterminate" $ text ""
+      div ! className "progress" $ div ! className "indeterminate" $ void
       else
       div ! className "more" $
         a ! className "waves-effect waves-light btn"
         #! on "onClick" (const FetchRepos) $ text "show more..."
-
-
-svgStar :: HTML Event
-svgStar =
-  svg ! className "icon" ! height "16" ! width "14" ! viewBox "0 1 14 16"
-  $ path ! fillRule "evenodd"
-  ! d "M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67\
-     \ 14 7 11.67 11.33 14l-.93-4.74z"
-  $ text ""
 
 showProject :: Project -> HTML Event
 showProject (Project project) =
@@ -48,7 +43,9 @@ showProject (Project project) =
     div ! className "name" $ a ! href ("https://www.github.com/" <> project.name) $ text project.name
     div ! className "desc" $ text (shorten project.desc)
     div ! className "misc" $  do
-      span ! className "star" $ svgStar
-      span ! className "totalStars" $ text project.totalStars
+      span ! className "starIcon" $ img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/star.svg"
+      span ! className "totalStars" $ text (toLocaleString project.totalStars)
+      span ! className "legalIcon" $ if (isEmpty project.license) then void else img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"
       span ! className "license" $ text project.license
+      span ! className "langIcon" $ if (isEmpty project.language) then void else img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"
       span ! className "language" $ text project.language

@@ -7,3 +7,5 @@ exports.shorten = function(str) {
             return s;
     }
 };
+exports.toLocaleString  = function(str) { return str.toLocaleString(); };
+exports.isEmpty  = function(str) { return str ? false : true; };

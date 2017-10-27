@@ -8,7 +8,7 @@ import CSS (CSS, borderBottom, borderRadius, color, fontSize, fromString,
 import CSS.Text (textDecoration, noneTextDecoration, letterSpacing)
 import CSS.Text.Transform (textTransform, uppercase)
 import CSS.TextAlign (center, textAlign)
-import CSS.Display (display, flex, float, floatLeft, floatRight, inlineBlock)
+import CSS.Display
 import CSS.Geometry
 import CSS.Common (auto)
 import CSS.Color
@@ -53,6 +53,27 @@ css = do
     fontSize (24.0 #px)
     hexColor "#4285F4"
 
+  fromString ".material-icons" ? do
+    marginRight (3.0 #px)
+    verticalAlign TextBottom
+    bottom (1.0 #px)
+    position relative
+
+  fromString ".legalIcon" ? do
+    marginRight (4.0 #px)
+    verticalAlign TextTop
+    position relative
+
+  fromString ".starIcon" ? do
+    marginRight (3.0 #px)
+    verticalAlign TextTop
+    position relative
+
+  fromString ".langIcon" ? do
+    marginRight (5.0 #px)
+    verticalAlign TextTop
+    position relative
+
   fromString ".name" ? do
     marginTop (20.0 #px)
 
@@ -80,6 +101,9 @@ css = do
     marginRight (20.0 #px)
     minWidth (75.0 #px)
     hexColor "#4c4c4c"
+
+  fromString ".license:empty" ? do
+    marginRight (0.0 #px)
 
   fromString ".misc" ? do
     marginTop (10.0 #px)
