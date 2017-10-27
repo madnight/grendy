@@ -20,17 +20,21 @@ view :: State -> HTML Event
 view (State st) =
   div $ do
     h1 $ text "Github Trends"
+    h2 $ text "Trending repositories of the past 24 hours"
     div $ for_ st.projects showProject
     if (A.length st.projects) == 0 then do
       h2 $ text "loading github projects..."
+      div ! className "progressBox" $
       div ! className "progress" $ div ! className "indeterminate" $ text ""
       else
-      div ! className "more" $ a ! className "waves-effect waves-light btn" #! on "onClick" (const FetchRepos) $ text "show more..."
+      div ! className "more" $
+        a ! className "waves-effect waves-light btn"
+        #! on "onClick" (const FetchRepos) $ text "show more..."
 
 
 svgStar :: HTML Event
 svgStar =
-  svg ! height "16" ! width "14" ! viewBox "0 0 14 16"
+  svg ! className "icon" ! height "16" ! width "14" ! viewBox "0 1 14 16"
   $ path ! fillRule "evenodd"
   ! d "M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67\
      \ 14 7 11.67 11.33 14l-.93-4.74z"

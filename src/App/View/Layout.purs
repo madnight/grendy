@@ -20,6 +20,8 @@ import Pux.DOM.HTML (HTML, style)
 import Text.Smolder.HTML (div)
 import Text.Smolder.HTML.Attributes (className)
 import Text.Smolder.Markup ((!))
+import CSS.VerticalAlign
+import Prelude ((<>))
 
 view :: State -> HTML Event
 view (State st) =
@@ -34,9 +36,13 @@ css = do
 
   fromString ".project" ? do
     minHeight (120.0 #px)
-    marginRight (10.0 #px)
-    marginLeft (10.0 #px)
+    marginRight (30.0 #px)
+    marginLeft (30.0 #px)
     borderBottom solid (1.0 #px) lightgrey
+
+  fromString ".progressBox" ? do
+    marginRight (150.0 #px)
+    marginLeft (150.0 #px)
 
   fromString ".avatar" ? do
     float floatLeft
@@ -55,7 +61,7 @@ css = do
     fontSize (16.0 #px)
 
   fromString ".star" ? do
-    marginRight (5.0 #px)
+    marginRight (3.0 #px)
 
   fromString ".todayStars" ? do
     float floatRight
@@ -73,12 +79,17 @@ css = do
   fromString ".license" ? do
     marginRight (20.0 #px)
     minWidth (75.0 #px)
+    hexColor "#4c4c4c"
 
   fromString ".misc" ? do
     marginTop (10.0 #px)
     marginLeft (120.0 #px)
     fontSize (14.0 #px)
     marginBottom (20.0 #px)
+
+  fromString ".icon" ? do
+    verticalAlign TextBottom
+    hexColor "#FFF6FF"
 
   fromString ".language" ? do
     marginRight (20.0 #px)
@@ -92,6 +103,7 @@ css = do
   fromString "h2" ? do
     fontSize (20.0 #px)
     marginTop (30.0 #px)
+    marginBottom (50.0 #px)
     textAlign center
 
   fromString ".more" ? do
