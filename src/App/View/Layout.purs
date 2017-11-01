@@ -13,6 +13,7 @@ import CSS.Geometry
 import CSS.Common (auto)
 import CSS.Color
 import CSS.Font
+import CSS.Stylesheet (query)
 import Control.Bind (discard)
 import Data.Function (($), (#))
 import Data.Maybe (fromMaybe)
@@ -21,6 +22,8 @@ import Text.Smolder.HTML (div)
 import Text.Smolder.HTML.Attributes (className)
 import Text.Smolder.Markup ((!))
 import CSS.VerticalAlign
+import CSS.Media as M
+import Data.NonEmpty
 import Prelude ((<>))
 
 view :: State -> HTML Event
@@ -36,13 +39,19 @@ css = do
 
   fromString ".project" ? do
     minHeight (120.0 #px)
-    marginRight (30.0 #px)
-    marginLeft (30.0 #px)
+    marginRight (50.0 #px)
+    marginLeft (50.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      marginRight (20.0 #px)
+      marginLeft (20.0 #px)
     borderBottom solid (1.0 #px) lightgrey
 
   fromString ".progressBox" ? do
-    marginRight (150.0 #px)
-    marginLeft (150.0 #px)
+    marginRight (120.0 #px)
+    marginLeft (120.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      marginRight (50.0 #px)
+      marginLeft (50.0 #px)
 
   fromString ".avatar" ? do
     float floatLeft
@@ -51,6 +60,8 @@ css = do
   fromString "a" ? do
     paddingTop (10.0 #px)
     fontSize (24.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      fontSize (20.0 #px)
     hexColor "#4285F4"
 
   fromString "img" ? do
@@ -82,22 +93,25 @@ css = do
 
   fromString ".desc" ? do
     minHeight (15.0 #px)
+    marginRight (50.0 #px)
     fontSize (16.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      fontSize (14.0 #px)
 
   fromString ".star" ? do
     marginRight (3.0 #px)
 
   fromString ".todayStars" ? do
     float floatRight
-    marginTop (10.0 #px)
     fontSize (28.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      fontSize (24.0 #px)
     minHeight (40.0 #px)
     fontWeight bold
     color mediumseagreen
 
   fromString ".totalStars" ? do
     minHeight (15.0 #px)
-    fontSize (14.0 #px)
     marginRight (20.0 #px)
 
   fromString ".license" ? do
@@ -111,8 +125,9 @@ css = do
   fromString ".misc" ? do
     marginTop (10.0 #px)
     marginLeft (120.0 #px)
-    fontSize (14.0 #px)
     marginBottom (20.0 #px)
+    query M.screen (singleton (M.maxWidth (768.0 #px))) do
+      fontSize (12.0 #px)
 
   fromString ".icon" ? do
     verticalAlign TextBottom
