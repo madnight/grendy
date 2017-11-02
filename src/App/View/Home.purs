@@ -13,6 +13,7 @@ import Text.Smolder.HTML.Attributes (className, href, src)
 import Text.Smolder.Markup (on, text, (!), (#!))
 import Text.Smolder.SVG (path, svg)
 import Text.Smolder.SVG.Attributes (d, fillRule, height, viewBox, width)
+import Text.Smolder.SVG.Attributes
 
 foreign import shorten :: String -> String
 foreign import toLocaleString :: String -> String
