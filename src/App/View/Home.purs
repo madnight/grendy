@@ -8,6 +8,7 @@ import Data.Foldable (for_)
 import Data.Maybe
 import Prelude hiding (div)
 import Pux.DOM.HTML (HTML)
+import Data.Monoid (mempty)
 import Text.Smolder.HTML (a, button, div, span, h1, h2, img, ol)
 import Text.Smolder.HTML.Attributes (className, href, src)
 import Text.Smolder.Markup (on, text, (!), (#!))
@@ -19,8 +20,6 @@ foreign import shorten :: String -> String
 foreign import toLocaleString :: String -> String
 foreign import isEmpty :: String -> Boolean
 
-void = text ""
-
 view :: State -> HTML Event
 view (State st) =
   div $ do
@@ -30,7 +29,7 @@ view (State st) =
     if (A.length st.projects) == 0 then do
       h2 $ text "loading github projects..."
       div ! className "progressBox" $
-      div ! className "progress" $ div ! className "indeterminate" $ void
+      div ! className "progress" $ div ! className "indeterminate" $ text mempty
       else
       div ! className "more" $
         a ! className "waves-effect waves-light btn"
@@ -61,7 +60,7 @@ showProject (Project project) =
         text (toLocaleString project.totalStars)
 
       span ! className "legalIcon" $
-        if (isEmpty project.license) then void
+        if (isEmpty project.license) then text mempty
         else img ! width "14" !
         src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"
 
@@ -69,7 +68,7 @@ showProject (Project project) =
         text project.license
 
       span ! className "langIcon" $
-        if (isEmpty project.language) then void
+        if (isEmpty project.language) then text mempty
         else img ! width "14" !
         src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"
 
