@@ -40,14 +40,38 @@ showProject :: Project -> HTML Event
 showProject (Project project) =
   when (not isEmpty project.desc) do
   div ! className "project" $ do
-    div ! className "todayStars" $ text $ "+" <> project.todayStars
-    div ! className "avatar" $ img ! width "100" ! src project.avatarUrl
-    div ! className "name" $ a ! href ("https://www.github.com/" <> project.name) $ text project.name
-    div ! className "desc" $ text (shorten project.desc)
-    div ! className "misc" $  do
-      span ! className "starIcon" $ img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/star.svg"
-      span ! className "totalStars" $ text (toLocaleString project.totalStars)
-      span ! className "legalIcon" $ if (isEmpty project.license) then void else img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"
-      span ! className "license" $ text project.license
-      span ! className "langIcon" $ if (isEmpty project.language) then void else img ! width "14" ! src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"
-      span ! className "language" $ text project.language
+    div ! className "todayStars" $
+      text $ "+" <> project.todayStars
+
+    div ! className "avatar" $
+      img ! width "100" ! src project.avatarUrl
+
+    div ! className "name" $
+      a ! href ("https://www.github.com/" <> project.name) $ text project.name
+
+    div ! className "desc" $
+      text (shorten project.desc)
+
+    div ! className "misc" $ do
+      span ! className "starIcon" $
+        img ! width "14" !
+        src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/star.svg"
+
+      span ! className "totalStars" $
+        text (toLocaleString project.totalStars)
+
+      span ! className "legalIcon" $
+        if (isEmpty project.license) then void
+        else img ! width "14" !
+        src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"
+
+      span ! className "license" $
+        text project.license
+
+      span ! className "langIcon" $
+        if (isEmpty project.language) then void
+        else img ! width "14" !
+        src "https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"
+
+      span ! className "language" $
+        text project.language

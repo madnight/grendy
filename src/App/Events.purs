@@ -9,6 +9,7 @@ import Data.Maybe (Maybe(..))
 import Network.HTTP.Affjax (AJAX)
 import Node.HTTP (HTTP)
 import Prelude (bind, pure, ($), (<>), (+), show, (==))
+import Data.Monoid (mempty)
 import Pux (EffModel, noEffects)
 
 data Event = IncrementPagination | FetchRepos | SetRepos Projects
@@ -36,10 +37,9 @@ fetchRepos :: ∀ fx. State -> EffModel State Event (AppEffects fx)
 fetchRepos (State st) =
   { state: State st
   , effects: [ do
-                let page = if st.pagination == 0
-                           then ""
+                let page = if st.pagination == 0 then mempty
                            else (show st.pagination)
-                repos <- query ("https://grendy.herokuapp.com/" <> page )
+                repos <- query ("https://grendy.herokuapp.com/" <> page)
                 pure $ Just $ SetRepos repos
                 ,
                 pure $ Just $ IncrementPagination
