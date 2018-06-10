@@ -48483,30 +48483,32 @@ var showProject = function (v) {
     return Control_Applicative.when(Control_Monad_Free.freeApplicative)(Data_HeytingAlgebra.not(Data_HeytingAlgebra.heytingAlgebraFunction(Data_HeytingAlgebra.heytingAlgebraBoolean))($foreign.isEmpty)(v.desc))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("project"))(Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("todayStars"))(Text_Smolder_Markup.text("+" + v.todayStars)))(function () {
         return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("avatar"))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("100")))(Text_Smolder_HTML_Attributes.src(v.avatarUrl))))(function () {
             return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("name"))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.a)(Text_Smolder_HTML_Attributes.href("https://www.github.com/" + v.name))(Text_Smolder_Markup.text(v.name))))(function () {
-                return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("desc"))(Text_Smolder_Markup.text($foreign.shorten(v.desc))))(function () {
-                    return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("misc"))(Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("starIcon"))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/star.svg"))))(function () {
-                        return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("totalStars"))(Text_Smolder_Markup.text($foreign.toLocaleString(v.totalStars))))(function () {
-                            return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("legalIcon"))((function () {
-                                var $3 = $foreign.isEmpty(v.license);
-                                if ($3) {
-                                    return Text_Smolder_Markup.text(Data_Monoid.mempty(Data_Monoid.monoidString));
-                                };
-                                return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"));
-                            })()))(function () {
-                                return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("license"))(Text_Smolder_Markup.text(v.license)))(function () {
-                                    return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("langIcon"))((function () {
-                                        var $4 = $foreign.isEmpty(v.language);
-                                        if ($4) {
-                                            return Text_Smolder_Markup.text(Data_Monoid.mempty(Data_Monoid.monoidString));
-                                        };
-                                        return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"));
-                                    })()))(function () {
-                                        return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("language"))(Text_Smolder_Markup.text(v.language));
+                return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("smallName"))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.a)(Text_Smolder_HTML_Attributes.href("https://www.github.com/" + v.name))(Text_Smolder_Markup.text(Data_Maybe.fromMaybe("")(Data_Array.last(Data_String.split("/")(v.name)))))))(function () {
+                    return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("desc"))(Text_Smolder_Markup.text($foreign.shorten(v.desc))))(function () {
+                        return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.div)(Text_Smolder_HTML_Attributes.className("misc"))(Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("starIcon"))(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/star.svg"))))(function () {
+                            return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("totalStars"))(Text_Smolder_Markup.text($foreign.toLocaleString(v.totalStars))))(function () {
+                                return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("legalIcon"))((function () {
+                                    var $3 = $foreign.isEmpty(v.license);
+                                    if ($3) {
+                                        return Text_Smolder_Markup.text(Data_Monoid.mempty(Data_Monoid.monoidString));
+                                    };
+                                    return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/law.svg"));
+                                })()))(function () {
+                                    return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("license"))(Text_Smolder_Markup.text(v.license)))(function () {
+                                        return Control_Bind.discard(Control_Bind.discardUnit)(Control_Monad_Free.freeBind)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("langIcon"))((function () {
+                                            var $4 = $foreign.isEmpty(v.language);
+                                            if ($4) {
+                                                return Text_Smolder_Markup.text(Data_Monoid.mempty(Data_Monoid.monoidString));
+                                            };
+                                            return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkup)(Text_Smolder_HTML.img)(Text_Smolder_SVG_Attributes.width("14")))(Text_Smolder_HTML_Attributes.src("https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"));
+                                        })()))(function () {
+                                            return Text_Smolder_Markup["with"](Text_Smolder_Markup.attributableMarkupF)(Text_Smolder_HTML.span)(Text_Smolder_HTML_Attributes.className("language"))(Text_Smolder_Markup.text(v.language));
+                                        });
                                     });
                                 });
                             });
-                        });
-                    }));
+                        }));
+                    });
                 });
             });
         });
@@ -48580,7 +48582,9 @@ var textOverflow = function (dictVal) {
     return CSS_Stylesheet.key(dictVal)(CSS_String.fromString(CSS_Property.isStringKey)("text-overflow"));
 };
 var smallScreen = CSS_Stylesheet.query(CSS_Media.screen)(Data_NonEmpty.singleton(Control_Plus.plusArray)(CSS_Media.maxWidth(CSS_Size.px(768.0))));
+var show = CSS_Stylesheet.key(CSS_Property.valString)(CSS_String.fromString(CSS_Property.isStringKey)("display"))("unset");
 var noWarp = CSS_Stylesheet.key(CSS_Property.valString)(CSS_String.fromString(CSS_Property.isStringKey)("white-space"))("nowrap");
+var hide = CSS_Stylesheet.key(CSS_Property.valString)(CSS_String.fromString(CSS_Property.isStringKey)("display"))("none");
 var css = (function () {
     var hexColor = function (hexstr) {
         return CSS_Font.color(Data_Maybe.fromMaybe(Color.white)(Color.fromHexString(hexstr)));
@@ -48648,72 +48652,86 @@ var css = (function () {
                                             return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".name"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(20.0)))(function () {
                                                 return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(textOverflow(CSS_Property.valString)("ellipsis"))(function () {
                                                     return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Overflow.overflow(CSS_Overflow.hidden))(function () {
-                                                        return noWarp;
+                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(noWarp)(function () {
+                                                            return smallScreen(hide);
+                                                        });
                                                     });
                                                 });
                                             })))(function () {
-                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".desc"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(15.0)))(function () {
-                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(16.0)))(function () {
-                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginLeft(CSS_Size.px(120.0)))(function () {
-                                                            return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(14.0)))(function () {
-                                                                return CSS_Geometry.marginLeft(CSS_Size.px(110.0));
-                                                            }));
+                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".smallName"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(hide)(function () {
+                                                    return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(20.0)))(function () {
+                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(show)(function () {
+                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(textOverflow(CSS_Property.valString)("ellipsis"))(function () {
+                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Overflow.overflow(CSS_Overflow.hidden))(function () {
+                                                                    return noWarp;
+                                                                });
+                                                            });
                                                         });
-                                                    });
+                                                    }));
                                                 })))(function () {
-                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".star"))(CSS_Geometry.marginRight(CSS_Size.px(3.0))))(function () {
-                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".todayStars"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Display["float"](CSS_Display.floatRight))(function () {
-                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(28.0)))(function () {
-                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(40.0)))(function () {
-                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontWeight(CSS_Font.bold))(function () {
-                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.color(Color_Scheme_X11.mediumseagreen))(function () {
-                                                                            return smallScreen(CSS_Font.fontSize(CSS_Size.px(24.0)));
+                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".desc"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(15.0)))(function () {
+                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(16.0)))(function () {
+                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginLeft(CSS_Size.px(120.0)))(function () {
+                                                                return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(14.0)))(function () {
+                                                                    return CSS_Geometry.marginLeft(CSS_Size.px(110.0));
+                                                                }));
+                                                            });
+                                                        });
+                                                    })))(function () {
+                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".star"))(CSS_Geometry.marginRight(CSS_Size.px(3.0))))(function () {
+                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".todayStars"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Display["float"](CSS_Display.floatRight))(function () {
+                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(28.0)))(function () {
+                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(40.0)))(function () {
+                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontWeight(CSS_Font.bold))(function () {
+                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.color(Color_Scheme_X11.mediumseagreen))(function () {
+                                                                                return smallScreen(CSS_Font.fontSize(CSS_Size.px(24.0)));
+                                                                            });
                                                                         });
                                                                     });
                                                                 });
-                                                            });
-                                                        })))(function () {
-                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".totalStars"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(15.0)))(function () {
-                                                                return CSS_Geometry.marginRight(CSS_Size.px(20.0));
                                                             })))(function () {
-                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".license"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginRight(CSS_Size.px(20.0)))(function () {
-                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minWidth(CSS_Size.px(75.0)))(function () {
-                                                                        return hexColor("#4c4c4c");
-                                                                    });
+                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".totalStars"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minHeight(CSS_Size.px(15.0)))(function () {
+                                                                    return CSS_Geometry.marginRight(CSS_Size.px(20.0));
                                                                 })))(function () {
-                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".license:empty"))(CSS_Geometry.marginRight(CSS_Size.px(0.0))))(function () {
-                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".misc"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(10.0)))(function () {
-                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginLeft(CSS_Size.px(120.0)))(function () {
-                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginBottom(CSS_Size.px(20.0)))(function () {
-                                                                                    return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(12.0)))(function () {
-                                                                                        return CSS_Geometry.marginLeft(CSS_Size.px(110.0));
-                                                                                    }));
+                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".license"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginRight(CSS_Size.px(20.0)))(function () {
+                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.minWidth(CSS_Size.px(75.0)))(function () {
+                                                                            return hexColor("#4c4c4c");
+                                                                        });
+                                                                    })))(function () {
+                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".license:empty"))(CSS_Geometry.marginRight(CSS_Size.px(0.0))))(function () {
+                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".misc"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(10.0)))(function () {
+                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginLeft(CSS_Size.px(120.0)))(function () {
+                                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginBottom(CSS_Size.px(20.0)))(function () {
+                                                                                        return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(12.0)))(function () {
+                                                                                            return CSS_Geometry.marginLeft(CSS_Size.px(110.0));
+                                                                                        }));
+                                                                                    });
                                                                                 });
-                                                                            });
-                                                                        })))(function () {
-                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".icon"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_VerticalAlign.verticalAlign(CSS_VerticalAlign.TextBottom.value))(function () {
-                                                                                return hexColor("#FFF6FF");
                                                                             })))(function () {
-                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".language"))(CSS_Geometry.marginRight(CSS_Size.px(20.0))))(function () {
-                                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)("h1"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(40.0)))(function () {
-                                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Text_Transform.textTransform(CSS_Text_Transform.uppercase))(function () {
-                                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Text.letterSpacing(CSS_Size.px(6.0)))(function () {
-                                                                                                return CSS_TextAlign.textAlign(CSS_TextAlign.center);
-                                                                                            });
-                                                                                        });
-                                                                                    })))(function () {
-                                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)("h2"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(20.0)))(function () {
-                                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(30.0)))(function () {
-                                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginBottom(CSS_Size.px(50.0)))(function () {
+                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".icon"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_VerticalAlign.verticalAlign(CSS_VerticalAlign.TextBottom.value))(function () {
+                                                                                    return hexColor("#FFF6FF");
+                                                                                })))(function () {
+                                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".language"))(CSS_Geometry.marginRight(CSS_Size.px(20.0))))(function () {
+                                                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)("h1"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(40.0)))(function () {
+                                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Text_Transform.textTransform(CSS_Text_Transform.uppercase))(function () {
+                                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Text.letterSpacing(CSS_Size.px(6.0)))(function () {
                                                                                                     return CSS_TextAlign.textAlign(CSS_TextAlign.center);
                                                                                                 });
                                                                                             });
                                                                                         })))(function () {
-                                                                                            return CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".more"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(25.0)))(function () {
-                                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.margin(CSS_Size.px(50.0))(CSS_Common.auto(CSS_Size.autoSize))(CSS_Size.px(50.0))(CSS_Common.auto(CSS_Size.autoSize)))(function () {
-                                                                                                    return CSS_TextAlign.textAlign(CSS_TextAlign.center);
+                                                                                            return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)("h2"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(20.0)))(function () {
+                                                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(30.0)))(function () {
+                                                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginBottom(CSS_Size.px(50.0)))(function () {
+                                                                                                        return CSS_TextAlign.textAlign(CSS_TextAlign.center);
+                                                                                                    });
                                                                                                 });
-                                                                                            }));
+                                                                                            })))(function () {
+                                                                                                return CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".more"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Font.fontSize(CSS_Size.px(25.0)))(function () {
+                                                                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.margin(CSS_Size.px(50.0))(CSS_Common.auto(CSS_Size.autoSize))(CSS_Size.px(50.0))(CSS_Common.auto(CSS_Size.autoSize)))(function () {
+                                                                                                        return CSS_TextAlign.textAlign(CSS_TextAlign.center);
+                                                                                                    });
+                                                                                                }));
+                                                                                            });
                                                                                         });
                                                                                     });
                                                                                 });
@@ -48744,7 +48762,9 @@ var view = function (v) {
 };
 module.exports = {
     css: css, 
+    hide: hide, 
     noWarp: noWarp, 
+    show: show, 
     smallScreen: smallScreen, 
     textOverflow: textOverflow, 
     view: view
