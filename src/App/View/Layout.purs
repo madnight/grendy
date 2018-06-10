@@ -34,6 +34,8 @@ view (State st) =
     Homepage.view (State st)
 
 textOverflow = key $ fromString "text-overflow"
+hide = key (fromString "display") "none"
+show = key (fromString "display") "unset"
 noWarp = key (fromString "white-space") "nowrap"
 smallScreen = query M.screen $ singleton $ M.maxWidth $ 768.0 #px
 
@@ -103,6 +105,17 @@ css = do
     textOverflow "ellipsis"
     overflow hidden
     noWarp
+    smallScreen do
+       hide
+
+  fromString ".smallName" ? do
+    hide
+    smallScreen do
+      marginTop $ 20.0 #px
+      show
+      textOverflow "ellipsis"
+      overflow hidden
+      noWarp
 
   fromString ".desc" ? do
     minHeight $ 15.0 #px

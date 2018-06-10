@@ -6,6 +6,8 @@ import Data.Array (length) as A
 import Data.String (take, length, null)
 import Data.Foldable (for_)
 import Data.Maybe
+import Data.Array (last)
+import Data.String (split, Pattern(..))
 import Prelude hiding (div)
 import Pux.DOM.HTML (HTML)
 import Data.Monoid (mempty)
@@ -47,6 +49,10 @@ showProject (Project project) =
 
     div ! className "name" $
       a ! href ("https://www.github.com/" <> project.name) $ text project.name
+
+    div ! className "smallName" $
+      a ! href ("https://www.github.com/" <> project.name) $
+          text $ fromMaybe "" $ last $ split (Pattern "/") project.name
 
     div ! className "desc" $
       text (shorten project.desc)
