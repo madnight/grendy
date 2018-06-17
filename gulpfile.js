@@ -2,11 +2,12 @@ const gulp = require('gulp')
 const ghPages = require('gulp-gh-pages')
 const confirm = require('inquirer-confirm')
 
-gulp.task('deploy', () => {
+gulp.task('deploy', (done) => {
     confirm('are you sure you want to deploy to gh-pages').then(() => {
-        return gulp.src('./static/**/*')
-        .pipe(ghPages())
+        gulp.src('./static/**/*').pipe(ghPages())
+        done()
     }, () => {
         process.stdout.write('deploy aborted\n')
+        done()
     })
 })
