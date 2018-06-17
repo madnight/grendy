@@ -62,6 +62,7 @@ css = do
 
   fromString ".avatar" ? do
     float floatLeft
+    marginTop $ 10.0 #px
     marginRight $ 20.0 #px
     smallScreen do
       marginRight $ 10.0 #px
@@ -102,9 +103,6 @@ css = do
 
   fromString ".name" ? do
     marginTop $ 20.0 #px
-    textOverflow "ellipsis"
-    overflow hidden
-    noWarp
     smallScreen do
        hide
 
@@ -112,10 +110,10 @@ css = do
     hide
     smallScreen do
       marginTop $ 20.0 #px
-      show
+      marginRight $ 5.0 #px
       textOverflow "ellipsis"
+      show
       overflow hidden
-      noWarp
 
   fromString ".desc" ? do
     minHeight $ 15.0 #px
