@@ -48609,8 +48609,10 @@ var css = (function () {
                 });
             })))(function () {
                 return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".avatar"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Display["float"](CSS_Display.floatLeft))(function () {
-                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginRight(CSS_Size.px(20.0)))(function () {
-                        return smallScreen(CSS_Geometry.marginRight(CSS_Size.px(10.0)));
+                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(10.0)))(function () {
+                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginRight(CSS_Size.px(20.0)))(function () {
+                            return smallScreen(CSS_Geometry.marginRight(CSS_Size.px(10.0)));
+                        });
                     });
                 })))(function () {
                     return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)("a"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.paddingTop(CSS_Size.px(10.0)))(function () {
@@ -48650,20 +48652,14 @@ var css = (function () {
                                             });
                                         })))(function () {
                                             return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".name"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(20.0)))(function () {
-                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(textOverflow(CSS_Property.valString)("ellipsis"))(function () {
-                                                    return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Overflow.overflow(CSS_Overflow.hidden))(function () {
-                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(noWarp)(function () {
-                                                            return smallScreen(hide);
-                                                        });
-                                                    });
-                                                });
+                                                return smallScreen(hide);
                                             })))(function () {
                                                 return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Stylesheet.select(CSS_String.fromString(CSS_Selector.isStringSelector)(".smallName"))(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(hide)(function () {
                                                     return smallScreen(Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginTop(CSS_Size.px(20.0)))(function () {
-                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(show)(function () {
+                                                        return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Geometry.marginRight(CSS_Size.px(5.0)))(function () {
                                                             return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(textOverflow(CSS_Property.valString)("ellipsis"))(function () {
-                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(CSS_Overflow.overflow(CSS_Overflow.hidden))(function () {
-                                                                    return noWarp;
+                                                                return Control_Bind.discard(Control_Bind.discardUnit)(CSS_Stylesheet.bindStyleM)(show)(function () {
+                                                                    return CSS_Overflow.overflow(CSS_Overflow.hidden);
                                                                 });
                                                             });
                                                         });
