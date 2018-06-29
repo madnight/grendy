@@ -39,7 +39,7 @@ fetchRepos (State st) =
   , effects: [ do
                 let page = if st.pagination == 0 then mempty
                            else (show st.pagination)
-                repos <- query ("https://grendy.herokuapp.com/" <> page)
+                repos <- query ("https://grendel.beuke.org/" <> page)
                 pure $ Just $ SetRepos repos
                 ,
                 pure $ Just $ IncrementPagination
