@@ -1,5 +1,13 @@
-# grendy
-Github Trending Repositories
+<p align="center">
+    <h1 align="center">Github Trending Repositories<br></h1>
+</p>
+
+<p align=center>
+<a href="https://www.gnu.org/licenses/agpl-3.0.en.html"><img src="https://img.shields.io/badge/license-AGPL--3.0-brightgreen.svg" alt="License (AGPL-3.0)"></a>
+<a href="https://codeclimate.com/github/madnight/grendy"><img src="https://codeclimate.com/github/madnight/grendy/badges/gpa.svg" alt="Code Climate"></a>
+<a href="https://codeclimate.com/github/madnight/grendy"><img src="https://codeclimate.com/github/madnight/grendy/badges/issue_count.svg" alt="Issue Count"></a>
+<a href="https://david-dm.org/madnight/grendy"><img src="https://david-dm.org/madnight/grendy/status.svg" alt="dependencies Status"></a>
+<a href="https://snyk.io/test/github/madnight/grendy"><img src="https://snyk.io/test/github/madnight/grendy/badge.svg" alt="Known Vulnerabilities"></a>
 
 ![](https://i.imgur.com/V7IjvFD.png)
 
